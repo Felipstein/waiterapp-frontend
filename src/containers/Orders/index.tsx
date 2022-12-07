@@ -1,78 +1,63 @@
+import { Order } from '../../types/Order';
+import { OrdersBoard } from '../OrdersBoard';
+
 import * as S from './styles';
+
+const orders: Order[] = [
+  {
+    '_id': '637c3988e2d331fa403df08f',
+    'table': '3',
+    'status': 'IN_PRODUCTION',
+    'products': [
+      {
+        'quantity': 1,
+        '_id': '637c3988e2d331fa403df090',
+        'product': {
+          'name': 'Limonada',
+          'imagePath': '1669085556357-coca-cola.png',
+          'price': 3.5,
+        },
+      },
+      {
+        'quantity': 1,
+        '_id': '637c3988e2d331fa403df090',
+        'product': {
+          'name': 'Limonada',
+          'imagePath': '1669085556357-coca-cola.png',
+          'price': 3.5,
+        },
+      },
+      {
+        'quantity': 1,
+        '_id': '637c3988e2d331fa403df090',
+        'product': {
+          'name': 'Limonada',
+          'imagePath': '1669085556357-coca-cola.png',
+          'price': 3.5,
+        },
+      },
+    ],
+  },
+];
 
 export function Orders() {
   return (
     <S.Container>
-      <S.Board>
-        <header>
-          <span>🕛️</span>
-          <strong>Fila de espera</strong>
-          <span>(1)</span>
-        </header>
-
-        <S.OrdersContainer>
-          <button
-            type='button'
-          >
-            <strong>Mesa 2</strong>
-            <span>2 itens</span>
-          </button>
-
-          <button
-            type='button'
-          >
-            <strong>Mesa 1</strong>
-            <span>4 itens</span>
-          </button>
-        </S.OrdersContainer>
-      </S.Board>
-      <S.Board>
-        <header>
-          <span>🔥</span>
-          <strong>Em andamento</strong>
-          <span>(3)</span>
-        </header>
-
-        <S.OrdersContainer>
-          <button
-            type='button'
-          >
-            <strong>Mesa 2</strong>
-            <span>2 itens</span>
-          </button>
-
-          <button
-            type='button'
-          >
-            <strong>Mesa 1</strong>
-            <span>4 itens</span>
-          </button>
-        </S.OrdersContainer>
-      </S.Board>
-
-      <S.Board>
-        <header>
-          <span>🕛️</span>
-          <strong>Fila de espera</strong>
-          <span>(1)</span>
-        </header>
-
-        <S.OrdersContainer>
-          <button
-            type='button'
-          >
-            <strong>Mesa 2</strong>
-            <span>2 itens</span>
-          </button>
-
-          <button
-            type='button'
-          >
-            <strong>Mesa 1</strong>
-            <span>4 itens</span>
-          </button>
-        </S.OrdersContainer>
-      </S.Board>
+      <OrdersBoard
+        icon="🕛️"
+        title='Fila de espera'
+        orders={orders}
+      />
+      <OrdersBoard
+        icon="🧑‍🍳"
+        title='Em preparação'
+        orders={[]}
+      />
+      <OrdersBoard
+        icon="✅"
+        title='Pronto'
+        orders={[]}
+      />
     </S.Container>
   );
 }
